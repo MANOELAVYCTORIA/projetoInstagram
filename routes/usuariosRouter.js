@@ -5,6 +5,8 @@ const ValidarCadrasto = require('../middlewares/ValidarCadastro')
 
 /* GET users listing. */
 router.get('/', usuariosController.index);
+router.get('/login', usuariosController.login);
+router.get('/registro', usuariosController.registro);
 router.post('/', ValidarCadrasto, usuariosController.create);
 router.put('/:id', usuariosController.update);
 router.delete('/:id', usuariosController.delete);

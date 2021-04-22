@@ -8,6 +8,16 @@ const usuariosController = {
         return res.render('usuarios', {listaUsuarios: usuarios});
     },
 
+    login: (req, res) =>{
+        return res.render('login')
+    },
+
+    registro: (req,res) =>{
+        return res.render('registro');
+    },
+
+  
+
     create: async (req, res) => {
          const {nome: _nome, email: _email, senha: _senha} = req.body;
          const novoUsuario = await Usuario.create ({
@@ -18,7 +28,7 @@ const usuariosController = {
 
          
 
-         return res.json(novoUsuario);
+         return res.redirect('/usuarios/login');
     },
 
     update: async (req,res) => {
