@@ -1,4 +1,5 @@
 
+const { registro } = require('../Controller/usuariosController');
 const {Usuario,sequelize} = require('../models');
 
 module.exports = async (req, res,next) => {
@@ -9,7 +10,7 @@ module.exports = async (req, res,next) => {
     if(!nome || !email ){
         res.status(400).json({erro: "Campo obrigadorio"});
         }else{
-          if(!senha || senha.length < 6 || senha.length > 12){
+          if(!senha || senha.length < 6 || senha.length > 12 || senha == confirmarsenha){
                 res.status(400).json({erro: "Senha invalida"});
                 }else{
                     if(usuarios.length){
